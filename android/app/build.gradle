@@ -24,11 +24,9 @@ if (flutterVersionName == null) {
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-// add firebase
-apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 29    // 2020/11から29以上
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -41,7 +39,8 @@ android {
     defaultConfig {
         applicationId "com.example.jewel"
         minSdkVersion 21    // 16 -> 21
-        targetSdkVersion 29
+        targetSdkVersion 29 // 2020/11から29以上
+        multiDexEnabled true // add
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -68,4 +67,9 @@ dependencies {
     // add firebase
     implementation platform('com.google.firebase:firebase-bom:26.3.0')
     implementation 'com.google.firebase:firebase-analytics'
+    // add firebase_auth
+    implementation 'com.google.firebase:firebase-auth'
 }
+
+// add firebase
+apply plugin: 'com.google.gms.google-services'
