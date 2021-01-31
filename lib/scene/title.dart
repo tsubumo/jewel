@@ -17,7 +17,8 @@ class TitleScene extends StatelessWidget
           child: Text('Start'),
           onPressed: ()
           {
-            Navigator.of(context).pushNamed(key_home);
+            showTestDIalog(context);
+            // Navigator.of(context).pushNamed(KEY_HOME);
           },
         ),
       ),
