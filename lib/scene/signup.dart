@@ -1,11 +1,11 @@
 // --------------------------------------------
-// ログイン画面
+// 新規登録画面
 // --------------------------------------------
 import 'package:flutter/material.dart';
 import 'scene_manager.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginScene extends StatelessWidget {
+class SignupScene extends StatelessWidget {
   final emailInputController = new TextEditingController();
   final passwordInputController = new TextEditingController();
 
@@ -13,7 +13,7 @@ class LoginScene extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(getDbgTitle("ログイン画面")),
+        title: Text(getDbgTitle("新規登録画面")),
       ),
       body: Center(
         child: new Form(
@@ -42,12 +42,12 @@ class LoginScene extends StatelessWidget {
                 const SizedBox(height: 24.0),
                 new Center(
                   child: new RaisedButton(
-                    child: const Text('Login'),
+                    child: const Text('SignUp'),
                     onPressed: () async {
                       try {
-                        // メールアドレス・パスワードでログイン
+                        // メールアドレス・パスワードでユーザー登録
                         final FirebaseAuth auth = FirebaseAuth.instance;
-                        await auth.signInWithEmailAndPassword(
+                        await auth.createUserWithEmailAndPassword(
                           email: emailInputController.text,
                           password: passwordInputController.text,
                         );
@@ -55,16 +55,8 @@ class LoginScene extends StatelessWidget {
                         await Navigator.of(context).pushNamed(key_home);
                       } catch (e) {
                         // 失敗した場合
-                        print("ログインに失敗しました：${e.message}");
+                        print("登録に失敗しました：${e.message}");
                       }
-                    },
-                  ),
-                ),
-                new Center(
-                  child: FlatButton(
-                    child: Text('新規登録'),
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(key_signup);
                     },
                   ),
                 ),

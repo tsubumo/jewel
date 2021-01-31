@@ -3,13 +3,14 @@
 // --------------------------------------------
 import 'package:flutter/cupertino.dart';
 import 'title.dart';
-import 'login.dart';
 import 'home.dart';
+import 'login.dart';
+import 'signup.dart';
 
 final String key_title = "title";
-final String key_login = "login";
 final String key_home = "home";
-
+final String key_login = "login";
+final String key_signup = "signup";
 // 開始ルート取得
 String getInitialRoute() {
   return key_title;
@@ -19,8 +20,9 @@ String getInitialRoute() {
 Map<String, Widget Function(BuildContext)> getRoutes() {
   var map = {
     key_title: (context) => TitleScene(),
-    key_login: (context) => LoginScene(),
     key_home: (context) => HomeScene(),
+    key_login: (context) => LoginScene(),
+    key_signup: (context) => SignupScene(),
   };
   return map;
 }
