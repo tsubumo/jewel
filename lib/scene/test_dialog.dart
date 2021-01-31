@@ -85,7 +85,7 @@ class CustomDialog
                     ),
                     onPressed: () {
                       hideCustomDialog();
-                      Navigator.of(context).pushNamed(KEY_HOME);
+                      Navigator.of(context).pushNamed(KEY_RECORD);
                     },
                   ),
  

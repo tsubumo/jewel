@@ -3,12 +3,15 @@
 // --------------------------------------------
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'title.dart';
-import 'home.dart';
-import 'test_dialog.dart';
+import 'package:jewel/scene/title.dart';
+import 'package:jewel/scene/home.dart';
+import 'package:jewel/scene/record.dart';
+import 'package:jewel/scene/test_dialog.dart';
+
 
 const KEY_TITLE = "title";
 const KEY_HOME = "home";
+const KEY_RECORD = "record";
 
 
 // 開始ルート取得
@@ -23,6 +26,7 @@ Map<String, Widget Function(BuildContext)> getRoutes()
   var map = {
     KEY_TITLE: (context) => TitleScene(),
     KEY_HOME: (context) => HomeScene(),
+    KEY_RECORD: (context) => RecordScene()
   };
   return map;
 }
