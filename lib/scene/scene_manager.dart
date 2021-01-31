@@ -3,29 +3,29 @@
 // --------------------------------------------
 import 'package:flutter/cupertino.dart';
 import 'title.dart';
+import 'login.dart';
 import 'home.dart';
 
 final String key_title = "title";
+final String key_login = "login";
 final String key_home = "home";
 
 // 開始ルート取得
-String getInitialRoute()
-{
+String getInitialRoute() {
   return key_title;
 }
 
 // シーン遷移MAP取得
-Map<String, Widget Function(BuildContext)> getRoutes()
-{
+Map<String, Widget Function(BuildContext)> getRoutes() {
   var map = {
     key_title: (context) => TitleScene(),
+    key_login: (context) => LoginScene(),
     key_home: (context) => HomeScene(),
   };
   return map;
 }
 
 // デバッグ用：タイトル文言取得
-String getDbgTitle(String title)
-{
+String getDbgTitle(String title) {
   return "[jewel] " + title;
 }

@@ -4,8 +4,7 @@
 import 'package:flutter/material.dart';
 import './scene_manager.dart';
 
-class TitleScene extends StatelessWidget 
-{
+class TitleScene extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,9 +14,9 @@ class TitleScene extends StatelessWidget
       body: Center(
         child: RaisedButton(
           child: Text('Start'),
-          onPressed: ()
-          {
-            Navigator.of(context).pushNamed(key_home);
+          onPressed: () {
+            // 遷移先の指定 ログイン画面へ遷移
+            Navigator.of(context).pushNamed(key_login);
           },
         ),
       ),

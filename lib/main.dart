@@ -1,20 +1,19 @@
 // --------------------------------------------
 // jewel メイン
 // --------------------------------------------
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import './scene/scene_manager.dart';
 
 // エントリーポイント
-void main() 
-{
+void main() {
   runApp(Main());
 }
 
-class Main extends StatelessWidget 
-{
+class Main extends StatelessWidget {
   @override
-  Widget build(BuildContext context) 
-  {
+  Widget build(BuildContext context) {
+    Firebase.initializeApp();
     return MaterialApp(
       title: 'jewel',
       theme: ThemeData(
@@ -23,6 +22,6 @@ class Main extends StatelessWidget
       ),
       initialRoute: getInitialRoute(),
       routes: getRoutes(),
-      );
+    );
   }
 }
