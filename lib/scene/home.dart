@@ -1,33 +1,47 @@
 // --------------------------------------------
 // Home画面
 // --------------------------------------------
-import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
-import './scene_manager.dart';
+import 'package:jewel/define/def_image.dart';
+import 'package:jewel/scene/scene_manager.dart';
 
-class HomeScene extends StatelessWidget {
+const _BTN_RADIUS = 100.0;
+
+
+class HomeScene extends StatefulWidget {
+  @override
+  _HomeSceneState createState() => _HomeSceneState();
+}
+
+class _HomeSceneState extends State<HomeScene> 
+{
+  var _count = 0;
+
+  void onCount()
+  {
+    setState(() =>
+    {
+      _count++
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(getDbgTitle("折れ線グラフ")),
+        title: Text(getDbgTitle("Home")),
       ),
-      body: Container(
-        padding: EdgeInsets.all(20),
+      body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("折れ線グラフ"),
-            Text( '結構な感じ度の推移' ),
-            Expanded(flex: 1,
-                child: Card(
-                    child: Container(
-                        padding: EdgeInsets.all(10),
-                        child: SimpleTimeSeriesChart.withSampleData()
-                    )
-                )
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset(
+              IMG_BUN_SILVER_NORMAL,
+              width: 250,
+              height: 250,
             ),
-
+            Text("Count: " + _count.toString()),
+            _getButton(onCount),
           ],
         ),
       ),
@@ -35,56 +49,27 @@ class HomeScene extends StatelessWidget {
   }
 }
 
-class SimpleTimeSeriesChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
-
-  SimpleTimeSeriesChart(this.seriesList, {this.animate});
-
-  factory SimpleTimeSeriesChart.withSampleData() {
-    return new SimpleTimeSeriesChart(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return new charts.TimeSeriesChart(
-      seriesList,
-      animate: animate,
-      dateTimeFactory: const charts.LocalDateTimeFactory(),
-    );
-  }
-
-  static List<charts.Series<TimeSeriesSales, DateTime>> _createSampleData() {
-    final data = [
-      new TimeSeriesSales(new DateTime(2020, 7, 19), 50),
-      new TimeSeriesSales(new DateTime(2020, 7, 20), 25),
-      new TimeSeriesSales(new DateTime(2020, 7, 21), 100),
-      new TimeSeriesSales(new DateTime(2020, 7, 22), 75),
-      new TimeSeriesSales(new DateTime(2020, 7, 23), 600),
-      new TimeSeriesSales(new DateTime(2020, 7, 24), 60),
-      new TimeSeriesSales(new DateTime(2020, 7, 25), 76),
-    ];
-
-    return [
-      new charts.Series<TimeSeriesSales, DateTime>(
-        id: 'Sales',
-        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-        domainFn: (TimeSeriesSales sales, _) => sales.time,
-        measureFn: (TimeSeriesSales sales, _) => sales.sales,
-        data: data,
-      )
-    ];
-  }
-
-}
-
-class TimeSeriesSales {
-  final DateTime time;
-  final int sales;
-
-  TimeSeriesSales(this.time, this.sales);
+Widget _getButton(Function onPressed)
+{
+  return RaisedButton(
+    onPressed: onPressed,
+    color: Colors.white70,
+    shape: const CircleBorder(
+      side: BorderSide(
+        color: Colors.black,
+        width: 2,
+        style: BorderStyle.solid,
+      ),
+    ),
+    child: Container(
+      width: _BTN_RADIUS,
+      height: _BTN_RADIUS,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(IMG_BTN_TEST),
+          fit: BoxFit.cover,
+        ),
+      ),
+    ),
+  );
 }
