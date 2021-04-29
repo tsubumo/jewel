@@ -9,7 +9,7 @@ class CustomDialog
   /*
    * 表示
    */
-  void showCustomDialog() {
+  void showDialog() {
  
     Navigator.push(
       context,

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "187980209308",
+    "project_id": "jewel-46317",
+    "storage_bucket": "jewel-46317.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187980209308:android:74564585b10c2ef670e159",
+        "android_client_info": {
+          "package_name": "com.example.jewel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187980209308-p63hc45qv2t174uc4082coqak6aoa4dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhWYWVE3V8YleEKZu1rMtOtBnclhYIwE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187980209308-p63hc45qv2t174uc4082coqak6aoa4dc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -15,8 +15,8 @@ class TitleScene extends StatelessWidget {
         child: RaisedButton(
           child: Text('Start'),
           onPressed: () {
-            // showTestDIalog(context);
-            Navigator.of(context).pushNamed(KEY_LOGIN);
+            showWeightDialog(context);
+            // Navigator.of(context).pushNamed(KEY_HOME);
           },
         ),
       ),

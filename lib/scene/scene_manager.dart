@@ -9,6 +9,7 @@ import 'package:jewel/scene/record.dart';
 import 'package:jewel/scene/test_dialog.dart';
 import 'package:jewel/scene/login.dart';
 import 'package:jewel/scene/signup.dart';
+import 'package:jewel/scene/weight_modal.dart';
 
 const KEY_TITLE = "title";
 const KEY_HOME = "home";
@@ -41,7 +42,13 @@ String getDbgTitle(String title) {
 void showTestDIalog(BuildContext context) {
   CustomDialog(
     context,
-  ).showCustomDialog();
+  ).showDialog();
+}
+
+void showWeightDialog(BuildContext context) {
+  WeightDialog(
+    context,
+  ).showDialog();
 }
 
 // --------------------------------------------
